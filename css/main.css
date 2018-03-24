@@ -1,0 +1,485 @@
+/**
+ * Параметры приложения
+ */
+@charset "utf-8";
+
+:root {
+    --color-text: #fff;
+    --color-alpha: #19222d;
+    --color-beta: #2a3e53;
+    --color-gamma: #b1c3d5;
+    --color-delta: #2ea6ff;
+    --color-epsilon: #4a90e2;
+
+    --font-stack: "Open Sans", sans-serif;
+    --font-size-alpha: 13px;
+    --font-size-beta: 12px;
+    --font-line-height-alpha: 18px;
+    --font-line-height-beta: 17px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    padding: 4px;
+}
+
+::-webkit-scrollbar-track {
+    padding: 4px;
+    background: var(--color-beta);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gamma);
+}
+
+
+/**
+ * Компонент
+ * Иконка
+ */
+ .Icon {
+    display: inline-block;
+    fill: currentColor;
+}
+
+
+/**
+ * Компонент
+ * Переключатель
+ */
+.Switch {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+    .Switch-Input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
+    .Switch-Icon {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 32px;
+        height: 20px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background: var(--color-beta);
+        transition: 0.2s;
+    }
+
+        .Switch-Icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 18px;
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background: var(--color-alpha);
+            transition: inherit;
+        }
+
+    .Switch-Input:checked + .Switch-Icon {
+        background: var(--color-delta);
+    }
+
+        .Switch-Input:checked + .Switch-Icon::before {
+            left: 100%;
+            transform: translateX(-100%);
+        }
+
+
+/**
+ * Компонент
+ * Меню с настройками
+ */
+.SettingsMenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .SettingsMenu-Item {
+        display: flex;
+        align-items: center;
+        padding: 10px 8px;
+        padding-left: 16px;
+    }
+
+    .SettingsMenu-Label {
+        flex: 1 1 0%;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .SettingsMenu-Control {
+        flex: 0 0 auto;
+        margin-left: 16px;
+    }
+
+
+/**
+ * Компонент
+ * Сообщение-плейсхолдер, если сообщений нет
+ */
+.MessagePlaceholder {
+    padding: 15px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-gamma);
+}
+
+    .MessagePlaceholder-Icon {
+        flex: 0 0 auto;
+        padding: 15px 0;
+        font-size: 116px;
+        width: 1em;
+        height: 1em;
+    }
+
+    .MessagePlaceholder-Text {
+        flex: 0 0 auto;
+        padding: 15px 0;
+        text-align: center;
+    }
+
+
+/**
+ * Компонент
+ * Шапка приложения
+ */
+.AppHeader {
+    position: relative;
+    display: flex;
+}
+
+    .AppHeader-Main {
+        flex: 1 1 0%;
+        min-width: 0;
+        padding: 10px 16px;
+        padding-right: 0;
+    }
+
+    .AppHeader-Tools {
+        flex: 0 0 auto;
+    }
+
+    .AppHeader-Title {
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+        font-weight: normal;
+        line-height: 1;
+        font-weight: 600;
+    }
+
+    .AppHeader-Description {
+        font-size: var(--font-size-beta);
+        line-height: var(--font-line-height-beta);
+        color: var(--color-gamma);
+    }
+
+    .AppHeader-Title,
+    .AppHeader-Description {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .AppHeader-MenuState {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .AppHeader-MenuToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        height: 100%;
+        width: 58px;
+        cursor: pointer;
+    }
+
+        .AppHeader-MenuToggle::before {
+            content: "";
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            visibility: hidden;
+        }
+
+        .AppHeader-MenuToggleItem {
+            position: relative;
+            display: block;
+            font-size: 5px;
+            width: 1em;
+            height: 1em;
+            border-radius: 999px;
+            background: var(--color-gamma);
+            transition: transform .3s;
+        }
+
+            .AppHeader-MenuToggleItem::before,
+            .AppHeader-MenuToggleItem::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: inherit;
+                background: inherit;
+                transition: inherit;
+            }
+
+            .AppHeader-MenuToggleItem::before {
+                left: auto;
+                right: 100%;
+                margin-right: 3px;
+            }
+
+            .AppHeader-MenuToggleItem::after {
+                left: 100%;
+                right: auto;
+                margin-left: 3px;
+            }
+
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle .AppHeader-MenuToggleItem {
+                font-size: 22px;
+                background: var(--color-epsilon);
+            }
+
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle .AppHeader-MenuToggleItem::before,
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle .AppHeader-MenuToggleItem::after {
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 2px;
+                height: 12px;
+                background: var(--color-alpha);
+            }
+
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle .AppHeader-MenuToggleItem::before {
+                transform: rotate(45deg);
+            }
+
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle .AppHeader-MenuToggleItem::after {
+                transform: rotate(-45deg);
+            }
+
+    .AppHeader-Menu {
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        right: 0;
+        margin: 10px 10px 0 0;
+        max-width: calc(100% - 20px);
+        transform: translateY(20%);
+        opacity: 0;
+        visibility: hidden;
+        background: var(--color-alpha);
+        box-shadow: 0 2px 10px #000;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+        .AppHeader-MenuState:checked ~ .AppHeader-Menu {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+            .AppHeader-MenuState:checked ~ .AppHeader-MenuToggle::before {
+                visibility: visible;
+            }
+
+
+/**
+ * Компонент
+ * Форма отправки сообщения
+ */
+.MessageForm {
+    display: flex;
+}
+
+    .MessageForm-Input {
+        flex: 1 1 0%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 14px 16px;
+        padding-right: 0;
+        max-height: 164px;
+    }
+
+        .MessageForm-Input:empty::before {
+            content: attr(data-placeholder);
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--color-gamma);
+        }
+
+    .MessageForm-Submit {
+        flex: 0 0 auto;
+        align-self: flex-end;
+        padding: 14px 16px;
+        border: 0;
+        background: 0;
+        color: var(--color-gamma);
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+        .MessageForm-Submit:hover,
+        .MessageForm-Submit:focus {
+            color: var(--color-text);
+        }
+
+
+/**
+ * Компонент
+ * Сообщение чата
+ */
+.ChatMessage {
+    display: flex;
+    align-items: flex-start;
+}
+
+    .ChatMessage-Media {
+        flex: 0 0 auto;
+    }
+
+    .ChatMessage-Main {
+        flex: 1 1 0%;
+    }
+
+    .ChatMessage-Avatar {
+        margin-right: 12px;
+        display: block;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+    }
+
+    .ChatMessage-AuthorName {
+        margin-bottom: 2px;
+        font-weight: 600;
+    }
+
+    /* user content */
+    .ChatMessage-Content {}
+
+        .ChatMessage-Content ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+            .ChatMessage-Content ul li::before {
+                content: "- ";
+            }
+
+    .ChatMessage-Item {
+        margin: 0;
+    }
+
+        .ChatMessage-Item + .ChatMessage-Item {
+            margin-top: 14px;
+        }
+
+
+/**
+ * Компонент
+ * Чат
+ */
+.Chat {}
+
+    .Chat-Group {}
+
+    .Chat-Group + .Chat-Group {
+        margin-top: 32px;
+    }
+
+
+/**
+ * Основной контейнер для приложения
+ */
+.App {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: var(--font-size-alpha, 100%);
+    line-height: var(--font-line-height-alpha);
+    font-family: var(--font-stack, sans-serif);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--color-text, #fff);
+    background: var(--color-alpha, #000);
+}
+
+    .App-Header {
+        flex: 0 0 auto;
+        border-bottom: 1px solid var(--color-beta);
+    }
+
+    .App-Main {
+        overflow: auto;
+        flex: 1 1 0%;
+        display: flex;
+    }
+
+    .App-Chat,
+    .App-EmptyMessage {
+        padding: 16px;
+        flex: 1 1 0%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+        .App-Chat:empty {
+            display: none;
+        }
+
+        .App-Chat:not(:empty) + .App-EmptyMessage {
+            display: none;
+        }
+
+    .App-Footer {
+        flex: 0 0 auto;
+        max-height: 164px;
+        border-top: 1px solid var(--color-beta);
+    }
+
+

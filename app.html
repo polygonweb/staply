@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=cyrillic">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- BEGIN App -->
+    <div class="App">
+        <!-- BEGIN App-Header -->
+        <header class="App-Header AppHeader">
+            <div class="AppHeader-Main">
+                <h2 class="AppHeader-Title">Задание: простой чат</h2>
+                <div class="AppHeader-Description">Количество участников безгранично</div>
+            </div>
+            <div class="AppHeader-Tools">
+                <input class="AppHeader-MenuState" type="checkbox" id="MenuState" />
+                <label class="AppHeader-MenuToggle" for="MenuState">
+                    <span class="AppHeader-MenuToggleItem"></span>
+                </label>
+                <ul class="AppHeader-Menu SettingsMenu">
+                    <li class="SettingsMenu-Item">
+                        <div class="SettingsMenu-Label">Уведомления</div>
+                        <label class="SettingsMenu-Control Switch">
+                            <input class="Switch-Input" type="checkbox">
+                            <span class="Switch-Icon"></span>
+                        </label>
+                    </li>
+                    <li class="SettingsMenu-Item">
+                        <div class="SettingsMenu-Label">Статус «В сети»</div>
+                        <label class="SettingsMenu-Control Switch">
+                            <input class="Switch-Input" type="checkbox">
+                            <span class="Switch-Icon"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!-- END App-Header -->
+
+        <!-- BEGIN App-Main -->
+        <div class="App-Main">
+            <div class="App-Chat Chat">
+                <div class="Chat-Group ChatMessage">
+                    <div class="ChatMessage-Media">
+                        <img class="ChatMessage-Avatar" src="uploads/diana.jpg" alt="diana" width="38" height="38">
+                    </div>
+                    <div class="ChatMessage-Main">
+                        <div class="ChatMessage-AuthorName">Diana</div>
+                        <div class="ChatMessage-Content">
+                            <div class="ChatMessage-Item">
+                                Сам чат состоит из трех частей:
+                                <ul>
+                                    <li>заголовка (его высота фиксирована), в котором указано название чата, количество участников и кнопка открытия списка настроек чата;</li>
+                                    <li>зоны сообщений пользователей (зона сообщений занимает все свободное от заголовка и блока ввода сообщения место, здесь же и присутствует вертикальный скролл), в которой отображаются сообщения пользователей с указанием автора сообщения (аватарка и имя);</li>
+                                    <li>блока ввода сообщений (который растет по мере количества строк в сообщении пользователя, но ограничен максимальной  высотой)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Chat-Group ChatMessage">
+                    <div class="ChatMessage-Media">
+                        <img class="ChatMessage-Avatar" src="uploads/sergio.jpg" alt="sergio" width="38" height="38">
+                    </div>
+                    <div class="ChatMessage-Main">
+                        <div class="ChatMessage-AuthorName">Sergio</div>
+                        <div class="ChatMessage-Content">
+                            <div class="ChatMessage-Item">
+                                Как вы уже поняли, на втором экране уже появляются сообщения и их может быть довольно много.
+                            </div>
+                            <div class="ChatMessage-Item">
+                                Сообщения от одного и того же пользователя «слипаются» (чтобы занимать меньше места)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Chat-Group ChatMessage">
+                    <div class="ChatMessage-Media">
+                        <img class="ChatMessage-Avatar" src="uploads/margo.jpg" alt="margo" width="38" height="38">
+                    </div>
+                    <div class="ChatMessage-Main">
+                        <div class="ChatMessage-AuthorName">Margo</div>
+                        <div class="ChatMessage-Content">
+                            <div class="ChatMessage-Item">
+                                Данные макеты должны быть сверстаны таким образом, чтобы отображаться на любых экранах в полный размер (занимать всю ширину и высоту устройства)
+                            </div>
+                            <div class="ChatMessage-Item">
+                                В этом состоянии отображен дропдаун с настройками. Он открывается по клику на иконку «три точки» и закрывается по клику на иконку «крестик» (которую визуально пользователь видит на том же месте).
+                            </div>
+                            <div class="ChatMessage-Item">
+                                Внутри дропдауна два пункта настроек, каждый из которых представляет себя переключатель на 2 состояния.
+                            </div>
+                            <div class="ChatMessage-Item">
+                                Напоминаем: никакого JS кода, реализовать требуется на чистом HTML+CSS. Анимирование интерфейсов не обязательно, но вы можете проявить себя =)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="App-EmptyMessage MessagePlaceholder">
+                <svg class="MessagePlaceholder-Icon Icon" width="116" height="116">
+                    <path d="M68.227 88.258l7.21 4.992c-.554 2.773-2.218 4.946-4.992 6.518-2.773 1.571-5.916 2.357-9.43 2.357h-24.96a7.95 7.95 0 0 0-3.606.832l-14.699 12.48v-13.312h-4.438c-3.697 0-6.84-1.063-9.43-3.19C1.295 96.81 0 94.083 0 90.755V54.977c0-3.513 1.248-6.472 3.744-8.875 2.496-2.404 5.5-3.606 9.014-3.606h.555v28.012c0 4.622 1.756 8.505 5.269 11.648 3.513 3.143 7.673 4.715 12.48 4.715h32.45c1.664 0 3.235.462 4.715 1.387zM97.902.063c4.808 0 8.922 1.617 12.342 4.853 3.42 3.236 5.131 7.165 5.131 11.787v46.594c0 4.622-1.71 8.551-5.13 11.787-3.421 3.236-7.535 4.853-12.343 4.853h-4.715v17.75l-20.8-16.64c-.74-.74-2.311-1.11-4.715-1.11H39.66c-4.807 0-8.921-1.617-12.342-4.853-3.42-3.236-5.13-7.165-5.13-11.787V16.703c0-4.807 1.386-8.782 4.16-11.926C29.12 1.634 32.91.062 37.718.062h60.184z" fill="var(--color-gamma)" />
+                </svg>
+                <div class="MessagePlaceholder-Text">
+                    Это пустое состояние чата <br>
+                    (данная заглушка из картинки и этого текста <br>
+                    должна отображаться по центру зоны <br>
+                    сообщений пользователей)
+                </div>
+            </div>
+        </div>
+        <!-- END App-Main -->
+
+        <!-- BEGIN App-Footer -->
+        <div class="App-Footer">
+            <!-- BEGIN MessageForm -->
+            <form class="MessageForm" method="POST" onsubmit="event.preventDefault()">
+                <div
+                    class="MessageForm-Input"
+                    contenteditable
+                    data-placeholder="Сообщение..."
+                ></div>
+                <button class="MessageForm-Submit" type="submit">
+                    <svg class="Icon" width="22" height="20">
+                        <path d="M0 20v-7.566l15.133-2.184L0 8.066V.5l21.125 9.75z" />
+                    </svg>
+                </button>
+            </form>
+            <!-- END MessageForm -->
+        </div>
+        <!-- END App-Footer -->
+    </div>
+    <!-- END App -->
+</body>
+</html>
