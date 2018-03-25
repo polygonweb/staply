@@ -4,12 +4,12 @@
 @charset "utf-8";
 
 :root {
-    --color-text: #fff;
-    --color-alpha: #19222d;
-    --color-beta: #2a3e53;
-    --color-gamma: #b1c3d5;
-    --color-delta: #2ea6ff;
-    --color-epsilon: #4a90e2;
+    --color-text: hsl(211, 33%, 25%);
+    --color-alpha: hsl(213, 29%, 90%);
+    --color-beta: hsl(211, 33%, 25%);
+    --color-gamma: hsla(210, 20%, 50%, 1);
+    --color-delta: hsl(100, 77%, 43%);
+    --color-epsilon: hsla(100, 70%, 43%, 1);
 
     --font-stack: "Open Sans", sans-serif;
     --font-size-alpha: 13px;
